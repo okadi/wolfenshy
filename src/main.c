@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <math.h>
+#include <string.h>
 #include <SDL3/SDL.h>
 
 typedef struct { float x, y; } Vec2;
@@ -77,11 +78,13 @@ int main(void) {
 	uint64_t last_ticks = 0;
 	uint64_t now_ticks = SDL_GetTicksNS();
 
+	// main loop
 	while (state.isRunning) {
 		last_ticks = now_ticks;
 		now_ticks = SDL_GetTicksNS();
 		float delta_time = (double)(now_ticks - last_ticks) / 1e9; // ns -> s
 
+		// should the window close?
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
