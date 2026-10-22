@@ -1,4 +1,12 @@
-/build*
-.cache/
+# vscode fluff
+.vscode/
+
+# cmake build dir
+build/
+
+# built files
+/swr
 *.exe
 *.dll
+*.so*
+*.dylib
